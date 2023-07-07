@@ -1,8 +1,10 @@
 package io.nekohasekai.sfa.ui.profile
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +20,9 @@ import io.nekohasekai.sfa.ktx.removeErrorIfNotEmpty
 import io.nekohasekai.sfa.ktx.showErrorIfEmpty
 import io.nekohasekai.sfa.ktx.startFilesForResult
 import io.nekohasekai.sfa.ktx.text
+import androidx.fragment.app.Fragment
+import io.nekohasekai.sfa.ui.MainActivity
+import io.nekohasekai.sfa.ui.main.ConfigurationFragment
 import io.nekohasekai.sfa.ui.shared.AbstractActivity
 import io.nekohasekai.sfa.utils.HTTPClient
 import kotlinx.coroutines.Dispatchers
@@ -82,6 +87,27 @@ class NewProfileActivity : AbstractActivity() {
             startFilesForResult(importFile, "application/json")
         }
         binding.createProfile.setOnClickListener(this::createProfile)
+
+
+        val configUrl = intent.data?.getQueryParameter("url")
+        configUrl?.let {
+            val url = Uri.parse(it)
+            val configName = intent.data?.getQueryParameter("name")
+            val configFlag = intent.data?.getQueryParameter("flag")
+            val updatedConfigUrl = if (!configFlag.isNullOrEmpty()) {
+                "$it&flag=$configFlag"
+            } else {
+                it
+            }
+
+            // 更新当前页面的相关视图或数据
+            binding.name.editText?.setText(configName ?: url.host)
+            binding.type.editText?.setText(TypedProfile.Type.Remote.name)
+            binding.remoteURL.editText?.setText(updatedConfigUrl)
+
+            // 执行创建配置的操作
+            createProfile(binding.createProfile)
+        }
     }
 
     private fun createProfile(view: View) {
@@ -170,6 +196,10 @@ class NewProfileActivity : AbstractActivity() {
         Profiles.create(profile)
         withContext(Dispatchers.Main) {
             binding.progressView.isVisible = false
+            Toast.makeText(this@NewProfileActivity, "配置下载已完成", Toast.LENGTH_SHORT).show()
+            // 添加页面切换代码
+            val intent = Intent(this@NewProfileActivity, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }

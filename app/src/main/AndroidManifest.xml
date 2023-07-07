@@ -56,8 +56,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="io.nekohasekai.sfa.ui.profile.NewProfileActivity"
-            android:exported="false" />
+                android:name="io.nekohasekai.sfa.ui.profile.NewProfileActivity"
+                android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="singbox" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="io.nekohasekai.sfa.ui.profile.EditProfileActivity"
             android:exported="false" />

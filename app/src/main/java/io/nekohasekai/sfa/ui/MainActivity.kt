@@ -303,6 +303,9 @@ class MainActivity : AbstractActivity(), ServiceConnection.Callback, DistributeL
 
         paused = false
         logCallback?.invoke(true)
+
+        reconnect()
+
     }
 
     override fun onServiceWriteLog(message: String?) {
