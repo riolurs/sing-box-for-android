@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">sing-box</string>
+
+    <string name="stop">停止</string>
+
+    <string name="title_dashboard">仪表盘</string>
+    <string name="title_configuration">配置文件</string>
+    <string name="title_log">日志</string>
+    <string name="title_settings">设置</string>
+    <string name="title_new_profile">新建配置</string>
+    <string name="title_edit_profile">编辑配置</string>
+    <string name="title_edit_configuration">编辑配置</string>
+
+    <string name="quick_toggle">切换</string>
+    <string name="profile_name">名称</string>
+    <string name="profile_type">类型</string>
+    <string name="profile_source">来源</string>
+    <string name="profile_url">URL</string>
+    <string name="profile_import_file">导入文件</string>
+    <string name="profile_create">创建</string>
+    <string name="profile_edit_content">编辑内容</string>
+    <string name="profile_check">检查</string>
+    <string name="profile_input_required">必填</string>
+    <string name="profile_empty">空配置文件</string>
+    <string name="profile_last_updated">上次更新</string>
+    <string name="profile_update">更新</string>
+    <string name="profile_auto_update">自动更新</string>
+    <string name="profile_auto_update_interval">自动更新间隔（分钟）</string>
+    <string name="profile_auto_update_interval_minimum_hint">最小值为 15</string>
+
+    <string name="profile_type_local">本地</string>
+    <string name="profile_type_remote">远程</string>
+    <string name="profile_source_create_new">创建新配置</string>
+    <string name="profile_source_import">导入</string>
+
+    <string name="menu_undo">撤销</string>
+    <string name="menu_redo">重做</string>
+    <string name="menu_format">格式化</string>
+    <string name="menu_delete">删除</string>
+
+    <string name="status_default">服务未启动</string>
+    <string name="status_starting">正在启动服务...</string>
+    <string name="status_stopping">正在停止服务...</string>
+    <string name="status_started">服务已启动</string>
+
+    <string name="enabled">已启用</string>
+    <string name="disabled">已禁用</string>
+
+    <string name="settings_clear_working_directory">清除工作目录</string>
+
+    <string name="error_title">错误</string>
+    <string name="file_manager_missing">您的设备缺少 Android 标准文件选择器，请安装一个，例如 Material Files。</string>
+    <string name="loading">加载中...</string>
+
+    <string name="service_error_missing_permission">无法请求 VPN 权限</string>
+    <string name="service_error_missing_notification_permission">无法请求通知权限</string>
+    <string name="service_error_empty_configuration">空配置</string>
+    <string name="service_error_title_start_command_server">启动命令服务器</string>
+    <string name="service_error_title_create_service">创建服务</string>
+    <string name="service_error_title_start_service">启动服务</string>
+    <string name="profile_status">状态</string>
+    <string name="status_memory">内存</string>
+    <string name="status_goroutines">Goroutines</string>
+    <string name="profile">配置文件</string>
+    <string name="core_version">版本</string>
+    <string name="core">核心</string>
+    <string name="core_data_size">数据大小</string>
+    <string name="analytics_title">分析</string>
+    <string name="analytics_message">您是否同意允许 SFA 收集分析数据、发送崩溃报告并通过 AppCenter 检查更新？</string>
+    <string name="no_thanks">不，谢谢</string>
+    <string name="ok">确定</string>
+    <string name="check_update">检查更新</string>
+    <string name="title_app_center">应用中心</string>
+    <string name="title_feedback">反馈</string>
+    <string name="message">消息</string>
+    <string name="send">发送</string>
+    <string name="send_feedback">发送反馈</string>
+    <string name="about_title">关于</string>
+    <string name="app_description">sing-box的安卓客户端，通用代理平台。</string>
+    <string name="documentation_button">文档</string>
+    <string name="community_button">社区</string>
+
+</resources>
