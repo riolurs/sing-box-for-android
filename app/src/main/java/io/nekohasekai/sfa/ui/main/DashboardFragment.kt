@@ -1,5 +1,7 @@
 package io.nekohasekai.sfa.ui.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -68,6 +70,7 @@ class DashboardFragment : Fragment(), CommandClientHandler {
                 Status.Stopped -> {
                     binding.fab.setImageResource(R.drawable.ic_play_arrow_24)
                     binding.fab.show()
+                    binding.dashboard.hide()
                 }
 
                 Status.Starting -> {
@@ -77,16 +80,19 @@ class DashboardFragment : Fragment(), CommandClientHandler {
                 Status.Started -> {
                     binding.fab.setImageResource(R.drawable.ic_stop_24)
                     binding.fab.show()
+                    binding.dashboard.show()
                     reconnect()
                 }
 
                 Status.Stopping -> {
                     binding.fab.hide()
+                    binding.dashboard.hide()
                 }
 
                 else -> {}
             }
         }
+
         binding.fab.setOnClickListener {
             when (activity.serviceStatus.value) {
                 Status.Stopped -> {
@@ -99,6 +105,13 @@ class DashboardFragment : Fragment(), CommandClientHandler {
 
                 else -> {}
             }
+        }
+
+
+
+        binding.dashboard.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://localhost:9090/ui"))
+            startActivity(intent)
         }
     }
 
